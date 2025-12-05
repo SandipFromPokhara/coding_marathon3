@@ -28,8 +28,11 @@ const JobPage = () => {
     if (!ok) return;
 
     try {
+      const user = JSON.parse(localStorage.getItem("user"));
+      const token = user?.token;
       const res = await fetch(`/api/jobs/${id}`, {
         method: "DELETE",
+        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
       });
 
       if (!res.ok) {
