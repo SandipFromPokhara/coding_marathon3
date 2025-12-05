@@ -19,7 +19,7 @@ connectDB();
 app.use("/api/jobs", jobRouter);
 // app.use("/api/users", userRouter);
 
-app.use(unknownEndpoint);
+app.use("/api", unknownEndpoint);
 app.use(errorHandler);
 
 app.use((req, res) => {
