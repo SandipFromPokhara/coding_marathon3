@@ -14,33 +14,15 @@ const JobListings = () => {
     fetchJobs();
   }, []);
 
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Do you want to delete this job?");
-    if (!confirmDelete) return;
-
-    const res = await fetch(`/api/jobs/${id}`, { method: "DELETE" });
-
-    if (res.ok) {
-      setJobs(jobs.filter(job => job._id !== id));   
-    } else {
-      alert("Failed to delete job");
-    }
-  };
-
   return (
     <div className="job-list">
       {jobs.length === 0 && <p>No jobs available.</p>}
 
       {jobs.map((job) => (
-        <JobListing 
-          key={job._id}
-          job={job} 
-          onDelete={handleDelete} 
-        />
+        <JobListing key={job._id} job={job} />
       ))}
     </div>
   );
 };
 
 export default JobListings;
-
