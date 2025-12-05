@@ -7,6 +7,9 @@ const JobPage = () => {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = user ? user.token : null;
+
   useEffect(() => {
     const fetchJob = async () => {
       try {
@@ -28,11 +31,9 @@ const JobPage = () => {
     if (!ok) return;
 
     try {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const token = user?.token;
       const res = await fetch(`/api/jobs/${id}`, {
         method: "DELETE",
-        headers: token ? { Authorization: `Bearer ${token}` } : undefined,
+        headers: {"Authorization": `Bearer ${token}`},
       });
 
       if (!res.ok) {
