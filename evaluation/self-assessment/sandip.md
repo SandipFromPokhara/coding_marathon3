@@ -1,55 +1,74 @@
 # Self-Assessment  
 
-- **Member name:** *write your name here*  
-- **Contribution area:** *briefly describe what part of the project you worked on (e.g., frontend component, backend route, database schema, etc.)*
+- **Member name:** *Sandip Ranjit*  
+- **Contribution area:** *Backend development (CRUD API, authentication, middleware, protected routes, testing)*
 
 ---
 
 ### 1. Functionality
 - **Does the code meet the requirements?**
-  - [ ] Does it implement all specified features you were responsible for?  
-  - [ ] Are edge cases handled (e.g., invalid data, duplicates)?  
-  - [ ] Are there any bugs or unexpected behaviors?  
+  - [Y] Does it implement all specified features you were responsible for?  
+  - [Y] Completed all CRUD features  
+  - [Y] Implemented complete authentication (User model + JWT)  
+  - [Y] Added route protection for all job endpoints  
+  - [Y] Wrote full Jest/Supertest test suites  
+  - [Y] Handled validation and security edge cases    
 
 - **Integration**
-  - [ ] Does your code work correctly with other parts of the application?  
-  - [ ] Are inputs and outputs managed appropriately?  
+  - [Y] Does your code work correctly with other parts of the application?  
+  - [Y] Backend connected cleanly with frontend  
+  - [Y] Auth headers and tokens worked after debugging  
+  - [Y] API responses remained consistent across branches   
 
 ---
 
 ### 2. Code Quality
 - **Readability**
-  - [ ] Is your code easy to understand for other developers?  
-  - [ ] Are variable and function names descriptive and meaningful?  
+  - [Y] Is your code easy to understand for other developers?  
+  - [Y] Are variable and function names descriptive and meaningful?
+  - [Y] Organized controllers, routes, and middleware  
+  - [Y] Minimal nested logic  
 
 - **Reusability**
-  - [ ] Can your code or parts of it be reused elsewhere in the application?  
-  - [ ] Is logic modular and separated from unrelated concerns?  
+  - [Y] Can your code or parts of it be reused elsewhere in the application?  
+  - [Y] Is logic modular and separated from unrelated concerns?  
 
 - **Comments and Documentation**
-  - [ ] Are there comments explaining complex logic?  
-  - [ ] Is there documentation for how to use your code unit?  
+  - [Y] Are there comments explaining complex logic?  
+  - [N] Is there documentation for how to use your code unit?  
 
 ---
 
 ### 3. Performance
 - **Efficiency**
-  - [ ] Are there any unnecessary operations or performance bottlenecks?  
-  - [ ] Is the code optimized for larger datasets or high traffic (if applicable)?  
+  - [Y] Optimized database queries  
+  - [Y] No redundant logic  
+  - [Y] Efficient token verification   
+
+Backend is scalable for larger datasets if needed.
 
 ---
 
 ### 4. Overall Assessment
 - **Strengths**  
-  - List the strengths of your contribution.  
+  - High-quality test coverage  
+  - Clean backend architecture  
+  - Robust authentication logic  
+  - Effective integration support   
 
 - **Areas for Improvement**  
-  - List areas where your code could be improved.  
+  - Could add more token failure scenario tests  
+  - More documentation for new contributors  
+  - Improve consistency for error-handling patterns  
 
 - **Action Plan**  
-  - Outline specific steps to address the areas for improvement.  
+  - Expand JWT test cases  
+  - Add a standardized error-handling module  
+  - Write backend integration documentation  
 
 ---
 
 ### 5. Additional Notes
-- Add any other relevant observations or feedback about your contribution.  
+  - Backend remained stable throughout project development.  
+  - Authentication work improved overall project structure.  
+  - Testing ensured smooth merging across branches.  
