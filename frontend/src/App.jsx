@@ -5,6 +5,7 @@ import Home from "./pages/HomePage";
 import AddJobPage from "./pages/AddJobPage";
 import Navbar from "./components/Navbar";
 import NotFoundPage from "./pages/NotFoundPage"
+import LoginPage from "./pages/LoginPage";
 import JobPage from "./pages/JobPage";
 import EditJobPage from "./pages/EditJobPage";
 import Signup from "./pages/Signup";
@@ -23,6 +24,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/add-job" element={isAuthenticated ? <AddJobPage /> : <Navigate to="/signup" />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/edit-job/:id" element={isAuthenticated ? <EditJobPage /> : <Navigate to="/signup" />} />
               <Route path="/jobs/:id" element={<JobPage isAuthenticated={isAuthenticated} />} />
               <Route path="/signup" element={isAuthenticated ? <Navigate to="/" /> : <Signup setIsAuthenticated={setIsAuthenticated} />} />
