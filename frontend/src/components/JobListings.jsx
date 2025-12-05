@@ -1,13 +1,46 @@
+import { useEffect, useState } from "react";
 import JobListing from "./JobListing";
 
 const JobListings = () => {
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const res = await fetch("/api/jobs"); 
+      const data = await res.json();
+      setJobs(data);
+    };
+
+    fetchJobs();
+  }, []);
+
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Do you want to delete this job?");
+    if (!confirmDelete) return;
+
+    const res = await fetch(`/api/jobs/${id}`, { method: "DELETE" });
+
+    if (res.ok) {
+      setJobs(jobs.filter(job => job._id !== id));   
+    } else {
+      alert("Failed to delete job");
+    }
+  };
+
   return (
     <div className="job-list">
-      <JobListing />
-      <JobListing />
-      <JobListing />
+      {jobs.length === 0 && <p>No jobs available.</p>}
+
+      {jobs.map((job) => (
+        <JobListing 
+          key={job._id}
+          job={job} 
+          onDelete={handleDelete} 
+        />
+      ))}
     </div>
   );
 };
 
 export default JobListings;
+
