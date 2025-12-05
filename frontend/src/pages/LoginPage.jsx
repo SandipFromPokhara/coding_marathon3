@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useLogin from '../hooks/useLogin';
 
-const LoginPage = () => {
+const LoginPage = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -12,6 +12,7 @@ const LoginPage = () => {
     e.preventDefault();
     const user = await login(username, password);
     if (user) {
+      setIsAuthenticated(true);
       navigate('/');
     }
   };
