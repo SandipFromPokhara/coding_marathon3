@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddJobPage = () => {
   const [form, setForm] = useState({
@@ -22,7 +23,9 @@ const AddJobPage = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submitForm = (e) => {
+  const navigate = useNavigate();
+
+  const submitForm = async (e) => {
     e.preventDefault();
 
     const jobData = {
@@ -47,8 +50,22 @@ const AddJobPage = () => {
         : [],
     };
 
-    console.log("Submitting job:", jobData);
-    // Backend API
+    try {
+      const res = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jobData),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        throw new Error(text || 'Failed to add job');
+      }
+      await res.json();
+      navigate('/');
+    } catch (err) {
+      console.error('Add job failed:', err);
+      alert(err.message);
+    }
   };
 
   return (
