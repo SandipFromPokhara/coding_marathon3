@@ -44,7 +44,7 @@ const AddJobPage = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     const jobData = {
@@ -70,9 +70,10 @@ const AddJobPage = () => {
     };
 
     console.log("Submitting job:", jobData);
-    addJob(jobData);
-
-    return navigate("/");
+    const ok = await addJob(jobData);
+    if (ok) {
+      navigate("/");
+    }
   };
 
   return (
