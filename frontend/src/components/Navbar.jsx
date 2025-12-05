@@ -13,6 +13,7 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
       <div className="links">
         <Link to="/">Home</Link>
         {isAuthenticated && <Link to="/add-job">Add Job</Link>}
+        {!isAuthenticated && <Link to="/login">Login</Link>}
         {!isAuthenticated && <Link to="/signup">Sign Up</Link>}
         {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
       </div>

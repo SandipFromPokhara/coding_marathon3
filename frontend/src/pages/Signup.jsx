@@ -44,8 +44,8 @@ const Signup = ({ setIsAuthenticated }) => {
       <form onSubmit={handleFormSubmit}>
         <label>Name:</label>
         <input {...name} />
-        <label>Email address:</label>
-        <input {...email} />
+        <label>Username:</label>
+        <input {...username} />
         <label>Password:</label>
         <input {...password} />
         <label>Phone Number:</label>
