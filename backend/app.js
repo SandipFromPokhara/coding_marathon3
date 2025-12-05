@@ -6,11 +6,12 @@ const jobRouter = require("./routes/jobRouter");
 const { unknownEndpoint,errorHandler } = require("./middleware/customMiddleware");
 const connectDB = require("./config/db");
 const cors = require("cors");
+const path = require('path');
 
 // Middlewares
 app.use(cors())
 app.use(express.json());
-app.use(express.static('view')); // Serve static files from 'view'
+app.use(express.static(path.join(__dirname, 'view')));
 
 connectDB();
  
@@ -22,7 +23,7 @@ app.use(unknownEndpoint);
 app.use(errorHandler);
 
 app.use((req, res) => {
-  res.sendFile(__dirname + '/view/index.html');
+  res.sendFile(path.join(__dirname, 'view', 'index.html'));
 });
 
 module.exports = app;
