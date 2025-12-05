@@ -82,7 +82,7 @@ describe("when there are initial jobs in the database", () => {
   });
 });
 
-// Return a single job
+// Return a single job by ID
 describe("getting a single job", () => {
   it("should return a job when ID is valid", async () => {
     const jobsAtStart = await jobsInDb();
@@ -98,7 +98,7 @@ describe("getting a single job", () => {
   });
 });
 
-// Update
+// Update job by ID
 describe("updating a job", () => {
   it("should update a job when ID is valid", async () => {
     const jobsAtStart = await jobsInDb();
@@ -115,7 +115,7 @@ describe("updating a job", () => {
   });
 });
 
-// Delete
+// Delete a job by ID
 describe("deleting a job", () => {
   it("should delete a job with valid ID", async () => {
     const jobsAtStart = await jobsInDb();
