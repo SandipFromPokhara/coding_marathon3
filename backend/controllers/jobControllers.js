@@ -23,7 +23,7 @@ const createJob = async (req, res) => {
   }
 };
 
-// GET /jobs/:jobId
+// GET /jobs/
 const getJobById = async (req, res) => {
   const { jobId } = req.params;
 
