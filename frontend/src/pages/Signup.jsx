@@ -28,7 +28,7 @@ const Signup = () => {
       address: {
         street: street.value,
         city: city.value,
-        zipcode: zipcode.value,
+        zipCode: zipcode.value,
       },
     });
     if (!error) {
