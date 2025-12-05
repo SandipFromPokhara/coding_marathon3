@@ -67,7 +67,7 @@ const updateJob = async (req, res) => {
   }
 };
 
-// DELETE /jobs/:jobId
+// DELETE/jobs/:jobId
 const deleteJob = async (req, res) => {
   const { jobId } = req.params;
 
