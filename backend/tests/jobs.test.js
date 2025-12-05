@@ -10,7 +10,7 @@ const initialJobs = [
     type: "Full-time",
     description: "Build systems",
     company: { name: "TechCorp", contactEmail: "hr@tech.com" },
-    location: { city: "NYC", state: "NY" },
+    location: { city: "Espoo", state: "Uusimaa" },
     salary: 90000,
   },
   {
@@ -18,7 +18,7 @@ const initialJobs = [
     type: "Contract",
     description: "Testing software",
     company: { name: "SoftTest", contactEmail: "qa@test.com" },
-    location: { city: "LA", state: "CA" },
+    location: { city: "Helsinki", state: "Uusimaa" },
     salary: 60000,
   },
 ];
@@ -59,7 +59,7 @@ describe("when there are initial jobs in the database", () => {
       type: "Full-time",
       description: "Node.js API dev",
       company: { name: "CodeHouse", contactEmail: "contact@code.com" },
-      location: { city: "Miami", state: "FL" },
+      location: { city: "Rovaniemi", state: "Oulu" },
       salary: 85000,
     };
 
