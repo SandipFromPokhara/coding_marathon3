@@ -12,7 +12,7 @@ const Signup = () => {
   const date_of_birth = useField("date");
   const street = useField("text");
   const city = useField("text");
-  const zipcode = useField("text");
+  const zipCode = useField("text");
 
   const { signup, error } = useSignup("/api/users/signup");
 
@@ -28,7 +28,7 @@ const Signup = () => {
       address: {
         street: street.value,
         city: city.value,
-        zipcode: zipcode.value,
+        zipCode: zipCode.value,
       },
     });
     if (!error) {
@@ -58,7 +58,7 @@ const Signup = () => {
         <label>City:</label>
         <input {...city} />
         <label>Zipcode:</label>
-        <input {...zipcode} />
+        <input {...zipCode} />
         <button>Sign up</button>
       </form>
     </div>
