@@ -15,7 +15,7 @@ const initialJobs = [
   },
   {
     title: "QA Analyst",
-    type: "Contract",
+    type: "Part-time",
     description: "Testing software",
     company: { name: "SoftTest", contactEmail: "qa@test.com" },
     location: { city: "Helsinki", state: "Uusimaa" },
