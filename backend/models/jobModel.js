@@ -27,6 +27,11 @@ const jobSchema = new mongoose.Schema({
   }, // Job status (open/closed)
   applicationDeadline: { type: Date }, // Deadline for job applications
   requirements: [String], // List of required skills or qualifications
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
 });
 
 //add  virtual field id

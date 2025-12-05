@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddJobPage = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: "",
     type: "Full-time",
@@ -18,12 +19,30 @@ const AddJobPage = () => {
     requirements: "", 
   });
 
+  const addJob = async (jobData) => {
+    try {
+      const res = await fetch("/api/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jobData),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to add job");
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+    return true;
+  };
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
-
-  const navigate = useNavigate();
 
   const submitForm = async (e) => {
     e.preventDefault();
@@ -50,21 +69,10 @@ const AddJobPage = () => {
         : [],
     };
 
-    try {
-      const res = await fetch('/api/jobs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(jobData),
-      });
-      if (!res.ok) {
-        const text = await res.text();
-        throw new Error(text || 'Failed to add job');
-      }
-      await res.json();
-      navigate('/');
-    } catch (err) {
-      console.error('Add job failed:', err);
-      alert(err.message);
+    console.log("Submitting job:", jobData);
+    const ok = await addJob(jobData);
+    if (ok) {
+      navigate("/");
     }
   };
 

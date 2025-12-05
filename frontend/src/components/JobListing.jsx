@@ -9,6 +9,7 @@ const JobListing = ({ job }) => {
       <p>Type: {job.type}</p>
       <p>Company: {job.company?.name}</p>
       <p>Location: {job.location?.city}, {job.location?.state}</p>
+      <p>Posted on: {new Date(job.postedDate).toLocaleDateString()}</p>
     </div>
   );
 };
