@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddJobPage = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: "",
     type: "Full-time",
@@ -16,6 +18,26 @@ const AddJobPage = () => {
     applicationDeadline: "",
     requirements: "", 
   });
+
+  const addJob = async (jobData) => {
+    try {
+      const res = await fetch("/api/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(jobData),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to add job");
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+    return true;
+  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +70,9 @@ const AddJobPage = () => {
     };
 
     console.log("Submitting job:", jobData);
-    // Backend API
+    addJob(jobData);
+
+    return navigate("/");
   };
 
   return (
