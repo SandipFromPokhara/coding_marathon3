@@ -1,4 +1,5 @@
 const express = require("express");
+const requireAuth = require("../middleware/requireAuth");
 const {
   getAllJobs,
   getJobById,
@@ -10,9 +11,9 @@ const {
 const router = express.Router();
 
 router.get("/", getAllJobs);
-router.post("/", createJob);
-router.get("/:jobId", getJobById);
-router.put("/:jobId", updateJob);
-router.delete("/:jobId", deleteJob);
+router.post("/", requireAuth, createJob);
+router.get("/:jobId", requireAuth, getJobById);
+router.put("/:jobId", requireAuth, updateJob);
+router.delete("/:jobId",requireAuth, deleteJob);
 
 module.exports = router;
