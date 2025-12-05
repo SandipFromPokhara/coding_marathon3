@@ -53,6 +53,7 @@ Both branches contained backend and frontend directories, but my responsibilitie
 ## 🔄 Commits and Pull Requests  
 
 ### **Commits Authored**
+- For `feature-noauth-sandip`
     - 8eecb36 (origin/feature-noauth-sandip, feature-noauth-sandip) Add comments for each test
     - e65fcf8 Remove user route for no-auth
     - f0598b1 Add test for job using jest and supertest
@@ -62,6 +63,17 @@ Both branches contained backend and frontend directories, but my responsibilitie
     - 2f99463 Install dependencies and add controller, model and router for user
     - f21a1c6 Initliaze main branch with starter code for Coding marathon 3 for Group-1
     - 68ae81e Initliaze starter code for Coding marathon 3
+  
+- For `feature-auth-sandip`
+
+  - 160c798 (origin/feature-auth-sandip, feature-auth-sandip) Add tests for protected routes
+  - 8485ade Update city names
+  - 2a9e759 Add auth middleware and protect job routes
+  - ac4239d Install dependencies
+  - 64b1b13 Update user schema to the latest version
+  - 7b6f551 Merge pull request #4 from SandipFromPokhara/branch-noauth-dinal
+  - 3fb0822 Merge pull request #5 from SandipFromPokhara/feature-job-be
+  - 94d7f25 Merge pull request #6 from SandipFromPokhara/feature-noauth-sandip
 
 ### **Pull Requests Authored**
 - PR: `feature-noauth-sandip → API-V1`
